@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin t&iacute;tulo</title>
+<style type="text/css"> 
+    <!-- 
+    body  {
+    	font: 100% Verdana, Arial, Helvetica, sans-serif;
+    	background: #666666;
+    	margin: 0; /* es recomendable ajustar a cero el margen y el relleno del elemento body para lograr la compatibilidad con la configuración predeterminada de los diversos navegadores */
+    	padding: 0;
+    	text-align: center; /* esto centra el contenedor en los navegadores IE 5*. El texto se ajusta posteriormente con el valor predeterminado de alineación a la izquierda en el selector #container */
+    	color: #000000;
+    }
+    
+    /* Sugerencias para diseños elásticos 
+    1. Dado que el tamaño global de los diseños elásticos se basa en el tamaño de fuente predeterminado del usuario, resultan algo más impredecibles. Si se utilizan correctamente, también son más accesibles para aquellas personas que necesitan tamaños de fuentes más grandes, dado que la longitud de línea mantiene la proporcionalidad.
+    2. La asignación de tamaño a los divs en este diseño se basa en el 100% del tamaño de fuente en el elemento body. Si reduce el tamaño global del texto empleando font-size: 80% en el elemento body o el #container, recuerde que todo el diseño reducirá su tamaño proporcionalmente. Es posible que le interese aumentar los anchos de los diversos divs para compensar este efecto.
+    3. Si la asignación de tamaño de fuente se modifica de forma distinta en cada div en lugar de hacerse en el diseño global (es decir: a #sidebar1 se le asigna un 70% de tamaño de fuente y a #mainContent se le asigna un 85% de tamaño de fuente), ello hará que se modifique proporcionalmente el tamaño global de cada uno de los divs. Si lo desea, puede realizar el ajuste basándose en la asignación de tamaño de fuente final.
+    */
+    .twoColElsRtHdr #container { 
+    	width: 46em;  /* este ancho creará un contenedor que cabrá en una ventana de navegador 800px si el texto se deja con los tamaños de fuente predeterminados del navegador */
+    	background: #FFFFFF;
+    	margin: 0 auto; /* los márgenes automáticos (conjuntamente con un ancho) centran la página */
+    	border: 1px solid #000000;
+    	text-align: left; /* esto anula text-align: center en el elemento body. */
+    } 
+    .twoColElsRtHdr #header { 
+    	background: #DDDDDD; 
+    	padding: 0 10px;  /* este relleno coincide con la alineación izquierda de los elementos de los divs que aparecen bajo él. Si se utiliza una imagen en el #header en lugar de texto, es posible que le interese quitar el relleno. */
+    } 
+    .twoColElsRtHdr #header h1 {
+    	margin: 0; /* el ajuste en cero del margen del último elemento del div de #header evita la contracción del margen (un espacio inexplicable entre divs). Si el div tiene un borde alrededor, esto no es necesario, ya que también evita la contracción del margen */
+    	padding: 10px 0; /* el uso de relleno en lugar de margen le permitirá mantener el elemento alejado de los bordes del div */
+    }
+    
+    /* Sugerencias para sidebar1:
+    1. Tenga en cuenta que, si establece un valor de tamaño de fuente en este div, el ancho global del div se ajustará en función de éste.
+    2. Dado que está trabajando en ems, es conveniente no utilizar relleno en la barra lateral propiamente dicha. Se añadirá al ancho en el caso de navegadores que cumplen los estándares, creando un ancho real desconocido. 
+    3. El espacio entre el lado del div y los elementos que contiene puede crearse colocando un margen izquierdo y derecho en dichos elementos, como se observa en la regla ".twoColElsRtHdr #sidebar1 p".
+    */
+    .twoColElsRtHdr #sidebar1 {
+    	float: right; 
+    	width: 12em; /* dado que este elemento es flotante, debe asignarse un ancho */
+    	background: #EBEBEB; /* el color de fondo se mostrará a lo largo de todo el contenido de la columna, pero no más allá */
+    	padding: 15px 0; /* el relleno superior e inferior crea un espacio visual dentro de este div */
+    }
+    .twoColElsRtHdr #sidebar1 h3, .twoColElsRtHdr #sidebar1 p {
+    	margin-left: 10px; /* deben asignarse los márgenes izquierdo y derecho de cada elemento que vaya a colocarse en las columnas laterales */
+    	margin-right: 10px;
+    }
+    
+    /* Sugerencias para mainContent:
+    1. Si asigna a este div #mainContent un valor de tamaño de fuente distinto del que tiene el div #sidebar1, los márgenes del div #mainContent se basarán en su tamaño de fuente y el ancho del div #sidebar1 se basará en su tamaño de fuente. Puede que le interese ajustar los valores de estos divs.
+    2. El espacio entre el mainContent y sidebar1 se crea con el margen izquierdo del div mainContent.  Con independencia de la cantidad de contenido que incluya el div sidebar1, permanecerá el espacio de la columna. Puede quitar el margen izquierdo si desea que el texto del div #mainContent llene el espacio de #sidebar1 cuando termine el contenido de #sidebar1.
+    3. Para evitar la caída de un elemento flotante, puede que tenga que realizar pruebas con el fin de determinar el tamaño máximo aproximado de la imagen/el elemento, ya que este diseño se basa en el tamaño de fuente del usuario combinado con los valores que usted establezca. Sin embargo, si el usuario tiene configurado un tamaño de fuente inferior al normal, habrá menos espacio disponible en el div #mainContent del que observará al realizar la prueba.
+    4. En el siguiente comentario condicional de Internet Explorer, la propiedad zoom se utiliza para asignar a mainContent "hasLayout." Esto evita que se produzcan diversos problemas específicos de IE.
+    */
+    .twoColElsRtHdr #mainContent {
+      	margin: 0 13em 0 10px; /* el margen izquierdo tendrá una mejor apariencia si hace coincidir la cantidad de relleno con el encabezado y el pie. */
+    } 
+    .twoColElsRtHdr #footer { 
+    	padding: 0 10px; /* este relleno coincide con la alineación izquierda de los elementos de los divs que aparecen por encima de él. */
+    	background:#DDDDDD;
+    } 
+    .twoColElsRtHdr #footer p {
+    	margin: 0; /* el ajuste en cero de los márgenes del primer elemento del pie evitará que puedan contraerse los márgenes (un espacio entre divs) */
+    	padding: 10px 0; /* el relleno de este elemento creará espacio, de la misma forma que lo haría el margen, sin el problema de la contracción de márgenes */
+    }
+    
+    /* Varias clases diversas para su reutilización */
+    .fltrt { /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+    	float: right;
+    	margin-left: 8px;
+    }
+    .fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. */
+    	float: left;
+    	margin-right: 8px;
+    }
+    .clearfloat { /* esta clase debe colocarse en un elemento div o break y debe ser el último elemento antes del cierre de un contenedor que incluya completamente a un elemento flotante */
+    	clear:both;
+        height:0;
+        font-size: 1px;
+        line-height: 0px;
+    }
+.Estilo4 {
+	font-size: x-small;
+	color: #0000FF;
+}
+.Estilo5 {color: #FF0000}
+.Estilo6 {
+	font-size: small;
+	color: #FF6600;
+}
+.Estilo7 {color: #FFFFFF}
+.Estilo8 {color: #000000}
+    --> 
+    </style><!--[if IE]>
+    <style type="text/css"> 
+    /* coloque las reparaciones de css para todas las versiones de IE en este comentario condicional */
+    .twoColElsRtHdr #sidebar1 { padding-top: 30px; }
+    .twoColElsRtHdr #mainContent { zoom: 1; padding-top: 15px; }
+    /* la propiedad zoom propia que se indica más arriba proporciona a IE el hasLayout que necesita para evitar diversos errores */
+    </style>
+    <![endif]--></head>
+
+<body class="twoColElsRtHdr">
+
+    <div id="container">
+      <div id="header">
+        <h1 align="center"><span class="Estilo5">Radio 9.0</span><br />
+        <span class="Estilo6">&quot;La radio de los Bufalos&quot;</span></h1>
+        </div>
+      <div id="sidebar1"><br />
+        <h3>Contactanos</h3>
+        <p>e-mail:<br />
+          <span class="Estilo4"><a href="www.gmail.com">el.que.te.habla@gmail.com
+          </a></span>
+          <!-- end #sidebar1 -->
+        </p>
+        </div>
+      <div id="mainContent">
+        <p>Te presentamos lo mas escuchado de lo que va de este 2019</p>
+        <table width="494" height="327" border="5" bordercolor="#000000" bgcolor="#F0F0F0">
+          <tr>
+            <td width="86"><div align="center"><strong>Posicion</strong></div></td>
+            <td width="188"><div align="center"><strong>Cancion</strong></div></td>
+            <td width="83"><div align="center"><strong><span class="Estilo7">.......<span class="Estilo8">Cantante</span></span></strong></div></td>
+            <td width="101"><div align="center">Play</div></td>
+          </tr>
+          <tr>
+            <td><div align="center">10.</div></td>
+            <td><div align="center">Going Bad</div></td>
+            <td><div align="center"><img src="https://cdn.cnn.com/cnnnext/dam/assets/171110135413-meek-mill-large-169.jpg" alt="Resultado de imagen para meek mill" width="167" height="112"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=S1gp0m4B5p8&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=11&amp;t=0s"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">9.</div></td>
+            <td><div align="center">Hear Me Calling</div></td>
+            <td><div align="center"><img src="https://i.ytimg.com/vi/cr82wSBZeeQ/maxresdefault.jpg" alt="Resultado de imagen para juice wrld" width="155" height="97"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=euSAgaub3m8&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=9"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">8.</div></td>
+            <td><div align="center">Last Hurrah</div></td>
+            <td><div align="center"><img src="https://pmcvariety.files.wordpress.com/2019/02/br.jpg?w=1000&amp;h=562&amp;crop=1" alt="Resultado de imagen para bebe rexha" width="142" height="95"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=fTNnwzXrVdg&amp;index=8&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">7.</div></td>
+            <td><div align="center">Swan Song</div></td>
+            <td><div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dua_Lipa-0761.jpg/170px-Dua_Lipa-0761.jpg" alt="Resultado de imagen para dua lipa" width="94" height="112"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=kO8fTk6oKQg&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=7"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">6.</div></td>
+            <td><div align="center">Que siga</div></td>
+            <td><div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Kenailavoz.jpg/300px-Kenailavoz.jpg" alt="Resultado de imagen para kenai cantante" width="154" height="114"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=v-lDgwMO3Zk&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=6"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">5.</div></td>
+            <td><div align="center">Olvidate</div></td>
+            <td><div align="center"><img src="http://www.elgenero.com/images/subir/images/15042390044t1vtqb.jpg" alt="Resultado de imagen para jhay cortez" width="151" height="106"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=MwiHvJN_sXg&amp;index=5&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">4.</div></td>
+            <td><div align="center">Swing</div></td>
+            <td><div align="center"><img src="http://zonacero.com/sites/default/files/styles/1260x720/public/2019/3/13/foto_detalle/danny_ocean.jpg?itok=HCiWtApU" alt="Resultado de imagen para danny ocean" width="164" height="108"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=0RYTD8uDqWU&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=4"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">3.</div></td>
+            <td><div align="center">Sleep</div></td>
+            <td><div align="center"><img src="https://yt3.ggpht.com/a-/AAuE7mAtYYi62NJmtS9QqOhkpN1j9jHO7ZtD3m9NdA=s900-mo-c-c0xffffffff-rj-k-no" alt="Resultado de imagen para johnny orlando" width="119" height="110"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=Hi-Y_Y9OVvE&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=3"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">2.</div></td>
+            <td><div align="center">Con Calma</div></td>
+            <td><div align="center"><img src="http://culto.latercera.com/wp-content/uploads/2019/01/Daddy_Yankee_Gasolina_La_Z-Urbana-900x600.jpg" alt="Resultado de imagen para daddy yankee" width="141" height="116"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=DiItGE3eAyQ&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=2"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">1.</div></td>
+            <td><div align="center">I Can't Get Enough</div></td>
+            <td><div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Benny_Bowtie_2018.jpg/190px-Benny_Bowtie_2018.jpg" alt="Resultado de imagen para benny blanco" width="125" height="143"/></div></td>
+            <td><div align="center"><a href="https://www.youtube.com/watch?v=Tztc73r8348&amp;list=PL4XLEC-MUq2uP2OhrGWdOErGUDrEquhqi&amp;index=1"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png" alt="Imagen relacionada" width="90" height="81"/></a></div></td>
+          </tr>
+        </table>
+        <h1>&nbsp;</h1>
+      <!-- end #mainContent --></div>
+    	<!-- Este elemento de eliminación siempre debe ir inmediatamente después del div #mainContent para forzar al div #container a que contenga todos los elementos flotantes hijos --><br class="clearfloat" />
+       <div id="footer">
+         <!-- end #footer -->
+      </div>
+    <!-- end #container --></div>
+    </body>
+</html>
